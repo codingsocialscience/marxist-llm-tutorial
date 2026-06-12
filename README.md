@@ -6,7 +6,8 @@ This tutorial expands [Nelimarkka's (2026)](https://journals.sagepub.com/doi/10.
 
 Install packages
 
-* transformers
+* transformers[torch]
+* datasets
 * torch
 * ipywidgets
 * pandas
@@ -14,3 +15,7 @@ Install packages
 ## Inference
 
 Notebook shows how to load a foundation model using the transformers framework.
+
+## Finetune
+
+Notebook to finetune a model to be used yourself.
