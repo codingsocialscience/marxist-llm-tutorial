@@ -2,15 +2,14 @@
 
 This tutorial expands [Nelimarkka's (2026)](https://journals.sagepub.com/doi/10.1177/20539517261447831) work on finetuning language models to make social science perspectives more prominent.
 
-## Prerequisites
-
+## Before class
 Install packages
 
-* transformers[torch]
-* datasets
-* torch
-* ipywidgets
-* pandas
+``pip install transformers[torch] datasets torch ipywidgets pandas``
+
+After that in the project folder
+
+``hf download openai-community/gpt2``
 
 ## Inference
 
