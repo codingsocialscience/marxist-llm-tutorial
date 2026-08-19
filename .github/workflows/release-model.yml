@@ -1,0 +1,35 @@
+~name: Release model checkpoint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'models/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with LFS)
+        uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - name: Pull LFS files
+        run: git lfs pull   # actions/checkout's lfs:true is known to sometimes leave pointer files; this forces the real content
+
+      - name: Zip model folder
+        run: |
+          zip -r model.zip models/
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: model-${{ github.run_number }}
+          name: "Model checkpoint #${{ github.run_number }}"
+          body: "Auto-published from models/ at commit ${{ github.sha }}"
+          files: model.zip~
