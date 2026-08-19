@@ -32,4 +32,4 @@ jobs:
           tag_name: model-${{ github.run_number }}
           name: "Model checkpoint #${{ github.run_number }}"
           body: "Auto-published from models/ at commit ${{ github.sha }}"
-          files: model.zip~
+          files: model.zip
